@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>갤러리 | 3.8 아카이브</title>
+  <meta
+    name="description"
+    content="3.8민주의거 관련 사진과 영상 자료를 모아볼 수 있는 갤러리입니다."
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <span class="brand-logo">
+          <img src="assets/images/logo.jpg" alt="사단법인 3.8민주의거기념사업회" />
+          <span class="brand-name">3.8 아카이브</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span>
+      </button>
+
+      <nav class="main-nav">
+        <a href="index.html">홈</a>
+        <a href="timeline.html">연표</a>
+        <a href="gallery.html" class="active">갤러리</a>
+        <a href="chat.html">AI Q&A</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <h1>사진·영상 갤러리</h1>
+        <p>3.8민주의거를 기록한 사진과 영상 자료를 확인해보세요.</p>
+      </div>
+    </div>
+
+    <!-- =============== 사진 갤러리 (반응형 grid + 라이트박스) =============== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">사진 자료</h2>
+        <p class="section-desc">사진을 클릭하면 크게 볼 수 있습니다.</p>
+
+        <!--
+          실제 서비스에서는 아래 img의 src를 기념관이 보유한 실사진 파일 경로로 교체하세요.
+          지금은 자료가 준비되기 전이라 설명용 플레이스홀더 이미지(SVG)를 사용합니다.
+        -->
+        <div class="gallery-grid" data-gallery>
+          <button type="button" class="gallery-item" data-gallery-item>
+            <img
+              src="assets/images/daejeon-highschool-protest.jpg"
+              alt="1960년 3월 8일, 대전고등학교 학생들의 시위 현장"
+              loading="lazy"
+            />
+            <span class="gallery-caption">대전고등학교 시위 현장</span>
+          </button>
+
+          <button type="button" class="gallery-item" data-gallery-item>
+            <img
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23a8763e'/%3E%3Ctext x='50%25' y='50%25' fill='%23262421' font-size='18' font-family='sans-serif' text-anchor='middle' dy='.3em'%3E학생 대표 성명서 낭독%3C/text%3E%3C/svg%3E"
+              alt="학생 대표가 성명서를 낭독하는 모습 (자료 준비중 - 예시 이미지)"
+              loading="lazy"
+            />
+            <span class="gallery-caption">학생 대표 성명서 낭독</span>
+          </button>
+
+          <button type="button" class="gallery-item" data-gallery-item>
+            <img
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23122840'/%3E%3Ctext x='50%25' y='50%25' fill='%23f7f5f0' font-size='18' font-family='sans-serif' text-anchor='middle' dy='.3em'%3E거리 행진 대열%3C/text%3E%3C/svg%3E"
+              alt="대전 시내를 행진하는 학생 대열 (자료 준비중 - 예시 이미지)"
+              loading="lazy"
+            />
+            <span class="gallery-caption">거리 행진 대열</span>
+          </button>
+
+          <button type="button" class="gallery-item" data-gallery-item>
+            <img
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%236b6660'/%3E%3Ctext x='50%25' y='50%25' fill='%23f7f5f0' font-size='18' font-family='sans-serif' text-anchor='middle' dy='.3em'%3E3.8민주의거 기념탑%3C/text%3E%3C/svg%3E"
+              alt="3.8민주의거 기념탑 전경 (자료 준비중 - 예시 이미지)"
+              loading="lazy"
+            />
+            <span class="gallery-caption">3.8민주의거 기념탑</span>
+          </button>
+
+          <button type="button" class="gallery-item" data-gallery-item>
+            <img
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23c99a5f'/%3E%3Ctext x='50%25' y='50%25' fill='%23262421' font-size='18' font-family='sans-serif' text-anchor='middle' dy='.3em'%3E기념사업회 행사 모습%3C/text%3E%3C/svg%3E"
+              alt="3.8민주의거기념사업회 기념 행사 모습 (자료 준비중 - 예시 이미지)"
+              loading="lazy"
+            />
+            <span class="gallery-caption">기념사업회 행사 모습</span>
+          </button>
+
+          <button type="button" class="gallery-item" data-gallery-item>
+            <img
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%231c3a5e'/%3E%3Ctext x='50%25' y='50%25' fill='%23f7f5f0' font-size='18' font-family='sans-serif' text-anchor='middle' dy='.3em'%3E학생들과 시민들%3C/text%3E%3C/svg%3E"
+              alt="시위에 함께한 시민들의 모습 (자료 준비중 - 예시 이미지)"
+              loading="lazy"
+            />
+            <span class="gallery-caption">학생들과 함께한 시민들</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== 영상 자료 (유튜브 iframe 임베드) =============== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">영상 자료</h2>
+        <p class="section-desc">
+          3.8민주의거를 다룬 영상을 시청할 수 있습니다.
+          <!-- 아래 iframe의 src에 있는 영상 ID를 실제 유튜브 영상 ID로 교체하세요. -->
+        </p>
+
+        <div class="video-grid">
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/REPLACE_WITH_VIDEO_ID_1"
+              title="3.8민주의거 소개 영상"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/REPLACE_WITH_VIDEO_ID_2"
+              title="3.8민주의거 기념 다큐멘터리"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span><strong>3.8 아카이브</strong> · 3.8민주의거기념사업회</span>
+      <span>&copy; 2026 3.8민주의거기념사업회. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <!-- =============== 라이트박스 (사진 확대 보기) =============== -->
+  <div class="lightbox" data-lightbox>
+    <button type="button" class="lightbox-close" data-lightbox-close aria-label="닫기">&times;</button>
+    <figure class="lightbox-content">
+      <img data-lightbox-img src="" alt="" />
+      <figcaption data-lightbox-caption></figcaption>
+    </figure>
+  </div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

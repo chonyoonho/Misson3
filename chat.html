@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Q&A | 3.8 아카이브</title>
+  <meta
+    name="description"
+    content="3.8민주의거에 대해 궁금한 점을 AI 챗봇에게 자유롭게 질문해보세요."
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <span class="brand-logo">
+          <img src="assets/images/logo.jpg" alt="사단법인 3.8민주의거기념사업회" />
+          <span class="brand-name">3.8 아카이브</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span>
+      </button>
+
+      <nav class="main-nav">
+        <a href="index.html">홈</a>
+        <a href="timeline.html">연표</a>
+        <a href="gallery.html">갤러리</a>
+        <a href="chat.html" class="active">AI Q&A</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <h1>AI에게 물어보기</h1>
+        <p>3.8민주의거에 대해 궁금한 점을 자유롭게 질문해보세요.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container chat-page">
+        <div class="info-box">
+          이 챗봇은 3.8민주의거의 역사적 사실을 안내하기 위한 AI 서비스입니다.
+          확실하지 않은 내용은 추측 대신 <strong>3.8민주의거기념사업회</strong> 문의를 안내합니다.
+        </div>
+
+        <div class="chat-panel">
+          <!-- 대화 내용이 쌓이는 영역 -->
+          <div class="chat-log" data-chat-log>
+            <div class="chat-bubble chat-bubble--bot">
+              안녕하세요! 3.8민주의거 역사 안내 챗봇입니다.
+              예를 들어 "왜 대전고 학생들이 시위를 했나요?"처럼 궁금한 점을 물어보세요.
+            </div>
+          </div>
+
+          <!-- 질문 입력 폼 -->
+          <form class="chat-form" data-chat-form>
+            <input
+              type="text"
+              name="question"
+              data-chat-input
+              class="chat-input"
+              placeholder="예: 3.8민주의거는 왜 일어났나요?"
+              autocomplete="off"
+            />
+            <button type="submit" class="btn btn-primary" data-chat-send>보내기</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span><strong>3.8 아카이브</strong> · 3.8민주의거기념사업회</span>
+      <span>&copy; 2026 3.8민주의거기념사업회. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

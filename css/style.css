@@ -1,0 +1,989 @@
+/* ==========================================================================
+   3.8 아카이브 - 공통 스타일시트
+   모든 페이지(index/chat/gallery/timeline)가 이 파일 하나를 공유합니다.
+   ========================================================================== */
+
+/* --- 1. 디자인 토큰 (색상/여백/폰트 등을 변수로 관리) ------------------- */
+:root {
+  /* 역사·교육 콘텐츠에 어울리는 차분한 톤: 네이비 + 앤틱 골드 + 아이보리 */
+  --color-primary: #1c3a5e;      /* 메인 네이비 (헤더, 버튼) */
+  --color-primary-dark: #122840; /* 진한 네이비 (hover, 푸터) */
+  --color-accent: #a8763e;       /* 앤틱 골드 (강조 포인트) */
+  --color-accent-light: #c99a5f;
+  --color-logo-red: #c50d19;     /* 3.8민주의거기념사업회 공식 로고의 레드 */
+
+  --color-bg: #f7f5f0;           /* 아이보리 배경 */
+  --color-bg-alt: #ffffff;       /* 카드/패널 배경 */
+  --color-border: #e0dccf;
+
+  --color-text: #262421;
+  --color-text-light: #6b6660;
+  --color-text-invert: #f7f5f0;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --shadow-sm: 0 1px 3px rgba(28, 58, 94, 0.08);
+  --shadow-md: 0 4px 16px rgba(28, 58, 94, 0.12);
+  --shadow-lg: 0 12px 32px rgba(28, 58, 94, 0.16);
+
+  --max-width: 1120px;
+  --header-height: 68px;
+}
+
+/* --- 2. 리셋 & 기본 요소 -------------------------------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Noto Sans KR", "Pretendard", "Malgun Gothic", sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+h1, h2, h3 {
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --- 3. 헤더 & 네비게이션 ------------------------------------------------- */
+.site-header {
+
+  top: 0;
+  z-index: 100;
+  height: var(--header-height);
+  background-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.site-header .container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-invert);
+}
+
+/*
+ * 3.8민주의거기념사업회 공식 로고 + 서비스명
+ * 로고가 흰 배경 원본이라, 네이비 헤더 위에 바로 얹는 대신 흰 카드에 담아
+ * 로고와 "3.8 아카이브" 글자를 함께 배치했다. 이렇게 하면 글자 색도
+ * 로고의 실제 레드 컬러(--color-logo-red)를 그대로 쓰면서 대비(가독성)도 확보된다.
+ * (네이비 배경 위에 로고 레드 글자를 바로 올리면 명도 대비가 너무 낮아 잘 안 보인다.)
+ */
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #1c3a5e;
+  padding: 8px 16px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+}
+
+.brand-logo img {
+  display: block;
+  height: 44px; /* 기존 22px 대비 2배 */
+  width: auto;
+}
+
+.brand-name {
+  white-space: nowrap;
+  color: var(--color-logo-red);
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+/* 데스크톱 내비게이션 */
+.main-nav {
+  display: flex;
+  gap: 6px;
+}
+
+.main-nav a {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  color: rgba(247, 245, 240, 0.82);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.main-nav a:hover {
+  background-color: rgba(247, 245, 240, 0.1);
+  color: var(--color-text-invert);
+}
+
+.main-nav a.active {
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
+  font-weight: 700;
+}
+
+/* 모바일 메뉴 토글 버튼 (햄버거) */
+.nav-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-toggle span,
+.nav-toggle span::before,
+.nav-toggle span::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  background-color: var(--color-text-invert);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle span {
+  top: 19px;
+}
+
+.nav-toggle span::before {
+  top: -7px;
+}
+
+.nav-toggle span::after {
+  top: 7px;
+}
+
+.nav-toggle[aria-expanded="true"] span {
+  background-color: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] span::before {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] span::after {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --- 4. 메인 콘텐츠 공통 --------------------------------------------------- */
+main {
+  flex: 1;
+}
+
+.page-header {
+  padding: 48px 0 28px;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg-alt);
+}
+
+.page-header h1 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: var(--color-primary);
+}
+
+.page-header p {
+  margin-top: 10px;
+  color: var(--color-text-light);
+}
+
+.section {
+  padding: 56px 0;
+}
+
+.section + .section {
+  border-top: 1px solid var(--color-border);
+}
+
+.section-title {
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.section-desc {
+  color: var(--color-text-light);
+  margin-bottom: 32px;
+  max-width: 640px;
+}
+
+/* --- 5. 히어로 섹션 (index.html) ------------------------------------------ */
+.hero {
+  position: relative;
+  /* 아래쪽에 대각선 절단면을 주기 위해 하단 여백을 넉넉히 확보 */
+  padding: 96px 0 152px;
+  text-align: center;
+  color: var(--color-text-invert);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(201, 154, 95, 0.18), transparent 46%),
+    radial-gradient(circle at 82% 80%, rgba(247, 245, 240, 0.08), transparent 42%),
+    linear-gradient(160deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  overflow: hidden;
+  /* 다음 섹션과의 경계를 각진 대각선으로 마감해 단조로운 직사각형 느낌을 덜어냄 */
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 56px), 0 100%);
+}
+
+/* 은은한 도트 패턴 텍스처 (기념 공간의 격자 포장을 연상시키는 질감) */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(247, 245, 240, 0.16) 1px, transparent 1.6px);
+  background-size: 26px 26px;
+  opacity: 0.55;
+  z-index: 0;
+}
+
+/* 배경 장식 레이어: 큰 한자 워터마크 + 원형 링 (이미지 없이 CSS/텍스트만으로 구현) */
+.hero-decor {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* 발생 지역 '대전(大田)'을 양쪽 여백에 배치하는 배경 워터마크로 사용 */
+.hero-hanja {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: "Noto Serif KR", "Nanum Myeongjo", "Batang", serif;
+  font-size: clamp(8rem, 18vw, 17rem);
+  font-weight: 800;
+  line-height: 1;
+  user-select: none;
+}
+
+/* 뷰포트가 넓어져도 본문 컨테이너 가장자리에서 일정한 간격만 벌어지도록,
+   "화면 기준 3%"와 "컨테이너 가장자리 + 여백" 중 더 안쪽인 값을 선택 */
+.hero-hanja--left {
+  left: max(3%, calc(50% - (var(--max-width) / 2) - 56px));
+  color: rgba(247, 245, 240, 0.16);
+}
+
+.hero-hanja--right {
+  right: max(3%, calc(50% - (var(--max-width) / 2) - 56px));
+  color: rgba(201, 154, 95, 0.26);
+}
+
+.hero-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(247, 245, 240, 0.16);
+}
+
+.hero-ring--lg {
+  width: 480px;
+  height: 480px;
+  top: -220px;
+  right: -140px;
+}
+
+.hero-ring--sm {
+  width: 260px;
+  height: 260px;
+  bottom: -140px;
+  left: -80px;
+  border-color: rgba(201, 154, 95, 0.4);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(247, 245, 240, 0.12);
+  border: 1px solid rgba(247, 245, 240, 0.25);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  margin-bottom: 18px;
+}
+
+.hero .highlight {
+  color: var(--color-accent-light);
+}
+
+.hero-lead {
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: rgba(247, 245, 240, 0.86);
+}
+
+.hero-meta {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.hero-meta div {
+  min-width: 96px;
+}
+
+.hero-meta strong {
+  display: block;
+  font-size: 1.3rem;
+  color: var(--color-accent-light);
+}
+
+.hero-meta span {
+  font-size: 0.85rem;
+  color: rgba(247, 245, 240, 0.72);
+}
+
+/* --- 6. 카드형 버튼 (index.html 페이지 이동) ------------------------------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.nav-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px 24px;
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.nav-card:hover,
+.nav-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-accent);
+}
+
+.nav-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: rgba(28, 58, 94, 0.08);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.nav-card h3 {
+  font-size: 1.15rem;
+  color: var(--color-primary);
+}
+
+.nav-card p {
+  color: var(--color-text-light);
+  font-size: 0.92rem;
+  flex: 1;
+}
+
+.nav-card .card-cta {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+/* --- 7. 안내 문구 박스 (기념관 정보 등 공용) ------------------------------- */
+.info-box {
+  background-color: rgba(168, 118, 62, 0.08);
+  border: 1px solid rgba(168, 118, 62, 0.28);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+.info-box strong {
+  color: var(--color-accent);
+}
+
+/* --- 8. 버튼 공통 --------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: var(--radius-sm);
+  border: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-light);
+}
+
+.btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--color-bg-alt);
+  color: var(--color-text-invert);
+}
+
+/* --- 9. 푸터 --------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--color-primary-dark);
+  color: rgba(247, 245, 240, 0.72);
+  padding: 32px 0;
+  font-size: 0.85rem;
+}
+
+.site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-footer strong {
+  color: var(--color-text-invert);
+}
+
+/* --- 9b. 타임라인 (timeline.html) ------------------------------------------ */
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-left: 100px;
+}
+
+/* 세로 연결선 */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 68px;
+  width: 2px;
+  background: linear-gradient(var(--color-accent), var(--color-border));
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-date {
+  position: absolute;
+  left: -100px;
+  width: 84px;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-day {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.timeline-year {
+  font-size: 0.78rem;
+  color: var(--color-text-light);
+}
+
+/* 타임라인 점 (연결선 위의 원) */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -36px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: 3px solid var(--color-bg);
+  box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+.timeline-card {
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.timeline-card h3 {
+  color: var(--color-primary);
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.timeline-card p {
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+}
+
+/* --- 9c. 4.19혁명 관계도 (timeline.html) ------------------------------------ */
+.relation-grid {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.relation-card {
+  flex: 1 1 200px;
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.relation-card h3 {
+  color: var(--color-accent);
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.relation-card p {
+  font-size: 0.92rem;
+  color: var(--color-text-light);
+}
+
+.relation-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: var(--color-accent);
+  flex: 0 0 auto;
+  padding: 0 4px;
+}
+
+/* --- 9d. 사진 갤러리 (gallery.html) ----------------------------------------- */
+.gallery-grid {
+  display: grid;
+  /* auto-fit + minmax: 화면 폭에 맞춰 열 개수가 자동으로 조절되는 반응형 그리드 */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.gallery-item {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: zoom-in;
+  background: none;
+  padding: 0;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.gallery-item:hover img,
+.gallery-item:focus-visible img {
+  transform: scale(1.06);
+}
+
+.gallery-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 12px;
+  font-size: 0.82rem;
+  color: var(--color-text-invert);
+  background: linear-gradient(to top, rgba(18, 40, 64, 0.85), transparent);
+  text-align: left;
+}
+
+/* --- 9e. 라이트박스 (사진 확대 보기 모달) ----------------------------------- */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(18, 22, 28, 0.88);
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox-content {
+  max-width: min(90vw, 820px);
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lightbox-content img {
+  max-height: 76vh;
+  width: auto;
+  margin: 0 auto;
+  border-radius: var(--radius-sm);
+}
+
+.lightbox-content figcaption {
+  color: var(--color-text-invert);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(247, 245, 240, 0.12);
+  color: var(--color-text-invert);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox-close:hover {
+  background: rgba(247, 245, 240, 0.22);
+}
+
+/* --- 9f. 유튜브 영상 임베드 (gallery.html) ---------------------------------- */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* 반응형 16:9 비율 유지 */
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  background-color: #000;
+}
+
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* --- 9g. AI 챗봇 (chat.html) ------------------------------------------------ */
+.chat-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 720px;
+}
+
+.chat-panel {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.chat-log {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  min-height: 320px;
+  max-height: 52vh;
+  overflow-y: auto;
+}
+
+.chat-bubble {
+  max-width: 82%;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  white-space: pre-wrap; /* AI 답변의 줄바꿈을 그대로 살림 */
+}
+
+.chat-bubble--bot {
+  align-self: flex-start;
+  background-color: rgba(28, 58, 94, 0.06);
+  color: var(--color-text);
+  border-bottom-left-radius: 4px;
+}
+
+.chat-bubble--user {
+  align-self: flex-end;
+  background-color: var(--color-primary);
+  color: var(--color-text-invert);
+  border-bottom-right-radius: 4px;
+}
+
+/* 실패 처리 안내 문구 (빈 질문 / 오류) */
+.chat-bubble--notice {
+  align-self: flex-start;
+  background-color: rgba(168, 118, 62, 0.14);
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* 로딩 중 "답변 생성 중..." 버블 */
+.chat-bubble--loading {
+  align-self: flex-start;
+  color: var(--color-text-light);
+  font-style: italic;
+}
+
+.chat-form {
+  display: flex;
+  gap: 10px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+}
+
+.chat-input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-alt);
+}
+
+.chat-input:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+.chat-input:disabled {
+  opacity: 0.6;
+}
+
+/* --- 10. 반응형: 태블릿/모바일에서 내비게이션을 드롭다운으로 전환 --------- */
+@media (max-width: 760px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  /* 좁은 화면에서는 로고 카드를 살짝 줄여 헤더가 여유 있게 보이도록 함 */
+  .brand-logo {
+    gap: 8px;
+    padding: 6px 12px;
+  }
+
+  .brand-logo img {
+    height: 32px;
+  }
+
+  .brand-name {
+    font-size: 0.92rem;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: var(--color-primary);
+    padding: 8px 16px 16px;
+    gap: 2px;
+    box-shadow: var(--shadow-md);
+
+    /* 기본은 숨김, JS가 .is-open을 토글하여 열고 닫음 */
+    max-height: 0;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: max-height 0.22s ease;
+  }
+
+  .main-nav.is-open {
+    max-height: 320px;
+    padding-top: 10px;
+    padding-bottom: 16px;
+  }
+
+  .main-nav a {
+    padding: 12px 14px;
+  }
+
+  .hero {
+    padding: 64px 0 96px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 32px), 0 100%);
+  }
+
+  .hero-meta {
+    gap: 20px;
+  }
+
+  .hero-hanja {
+    font-size: 9rem;
+  }
+
+  /* 모바일에서는 타임라인 날짜를 카드 위로 올려서 좁은 화면에 맞춤 */
+  .timeline {
+    padding-left: 28px;
+  }
+
+  .timeline::before {
+    left: 6px;
+  }
+
+  .timeline-item::before {
+    left: -22px;
+  }
+
+  .timeline-date {
+    position: static;
+    text-align: left;
+    width: auto;
+    flex-direction: row;
+    gap: 8px;
+    align-items: baseline;
+    margin-bottom: 6px;
+  }
+
+  .relation-grid {
+    flex-direction: column;
+  }
+
+  .relation-arrow {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+  .chat-log {
+    padding: 16px;
+    min-height: 260px;
+  }
+
+  .chat-bubble {
+    max-width: 92%;
+  }
+
+  .chat-form {
+    padding: 12px;
+  }
+
+  /* 화면이 아주 좁을 때는 한자 워터마크를 숨겨 텍스트 가독성을 우선함 */
+  .hero-hanja {
+    display: none;
+  }
+
+  .hero-ring--sm {
+    display: none;
+  }
+
+  /* 아주 좁은 화면에서는 헤더가 로고+서비스명으로 넘치지 않도록 서비스명은 숨김 */
+  .brand-name {
+    display: none;
+  }
+
+  .brand-logo {
+    gap: 0;
+    padding: 6px 10px;
+  }
+
+  .brand-logo img {
+    height: 28px;
+  }
+}
