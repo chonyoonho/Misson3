@@ -72,8 +72,8 @@
 
           <button type="button" class="gallery-item" data-gallery-item>
             <img
-              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23122840'/%3E%3Ctext x='50%25' y='50%25' fill='%23f7f5f0' font-size='18' font-family='sans-serif' text-anchor='middle' dy='.3em'%3E거리 행진 대열%3C/text%3E%3C/svg%3E"
-              alt="대전 시내를 행진하는 학생 대열 (자료 준비중 - 예시 이미지)"
+              src="assets/images/거리행진.jpg"
+              alt="경찰에 의해 집단 연행되면서도 '학원에 자유를 달라' 구호를 외치는 대전고등학교 학생들 (1960. 3. 8)"
               loading="lazy"
             />
             <span class="gallery-caption">거리 행진 대열</span>
@@ -81,21 +81,40 @@
 
           <button type="button" class="gallery-item" data-gallery-item>
             <img
-              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%236b6660'/%3E%3Ctext x='50%25' y='50%25' fill='%23f7f5f0' font-size='18' font-family='sans-serif' text-anchor='middle' dy='.3em'%3E3.8민주의거 기념탑%3C/text%3E%3C/svg%3E"
-              alt="3.8민주의거 기념탑 전경 (자료 준비중 - 예시 이미지)"
+              src="assets/images/3.8거리행진2.jpg"
+              alt="경찰에 연행되어 거리를 행진하는 대전고등학교 학생들 (출처: 충청헤럴드)"
+              loading="lazy"
+            />
+            <span class="gallery-caption">거리 행진 대열 ②<br />(출처: 충청헤럴드)</span>
+          </button>
+
+          <button type="button" class="gallery-item" data-gallery-item>
+            <img
+              src="assets/images/기념탑.webp"
+              alt="3.8민주의거 기념탑 전경"
               loading="lazy"
             />
             <span class="gallery-caption">3.8민주의거 기념탑</span>
           </button>
 
-          <button type="button" class="gallery-item" data-gallery-item>
-            <img
-              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23c99a5f'/%3E%3Ctext x='50%25' y='50%25' fill='%23262421' font-size='18' font-family='sans-serif' text-anchor='middle' dy='.3em'%3E기념사업회 행사 모습%3C/text%3E%3C/svg%3E"
-              alt="3.8민주의거기념사업회 기념 행사 모습 (자료 준비중 - 예시 이미지)"
+          <div class="gallery-item gallery-item--video">
+            <iframe
+              src="https://www.youtube.com/embed/2PkgTjaliT4"
+              title="3.8민주의거기념사업회 기념 행사 모습"
               loading="lazy"
-            />
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            <!-- file://로 직접 열면 유튜브 임베드가 재생되지 않으므로 안내 오버레이로 대체 -->
+            <div class="video-frame-notice" data-video-notice hidden>
+              <p>
+                <strong>로컬 서버로 열어야 영상이 재생됩니다.</strong><br />
+                파일을 더블클릭해서 열면(file://) 유튜브 임베드가 차단됩니다.
+              </p>
+              <code>npx serve .</code>
+            </div>
             <span class="gallery-caption">기념사업회 행사 모습</span>
-          </button>
+          </div>
 
           <button type="button" class="gallery-item" data-gallery-item>
             <img
@@ -121,22 +140,38 @@
         <div class="video-grid">
           <div class="video-frame">
             <iframe
-              src="https://www.youtube.com/embed/REPLACE_WITH_VIDEO_ID_1"
+              src="https://www.youtube.com/embed/c6We8WLOENc"
               title="3.8민주의거 소개 영상"
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe>
+            <!-- 파일을 브라우저로 직접 열면(file://) 유튜브 임베드가 origin 문제로 재생되지 않아
+                 안내 문구를 덮어씌움. js/main.js의 initVideoFileProtocolNotice()가 제어. -->
+            <div class="video-frame-notice" data-video-notice hidden>
+              <p>
+                <strong>로컬 서버로 열어야 영상이 재생됩니다.</strong><br />
+                파일을 더블클릭해서 열면(file://) 유튜브 임베드가 차단됩니다.
+              </p>
+              <code>npx serve .</code>
+            </div>
           </div>
 
           <div class="video-frame">
             <iframe
-              src="https://www.youtube.com/embed/REPLACE_WITH_VIDEO_ID_2"
+              src="https://www.youtube.com/embed/srXvTLHCnmk"
               title="3.8민주의거 기념 다큐멘터리"
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe>
+            <div class="video-frame-notice" data-video-notice hidden>
+              <p>
+                <strong>로컬 서버로 열어야 영상이 재생됩니다.</strong><br />
+                파일을 더블클릭해서 열면(file://) 유튜브 임베드가 차단됩니다.
+              </p>
+              <code>npx serve .</code>
+            </div>
           </div>
         </div>
       </div>

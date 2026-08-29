@@ -8,6 +8,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   initNavToggle();
   initGalleryLightbox();
+  initVideoFileProtocolNotice();
   initChat();
 });
 
@@ -75,7 +76,20 @@ function initGalleryLightbox() {
 }
 
 /* --------------------------------------------------------------------------
- * 3. AI 챗봇 (chat.html 전용, 해당 요소가 없으면 그냥 종료)
+ * 3. 유튜브 임베드 file:// 안내 (gallery.html 전용)
+ * file://로 직접 열면 유튜브 iframe이 origin 검증 실패로 재생되지 않으므로,
+ * 그 경우에만 안내 오버레이를 보여줌. 서버(http/https)로 열었을 때는 그대로 재생.
+ * ------------------------------------------------------------------------ */
+function initVideoFileProtocolNotice() {
+  if (window.location.protocol !== "file:") return;
+
+  document.querySelectorAll("[data-video-notice]").forEach((notice) => {
+    notice.hidden = false;
+  });
+}
+
+/* --------------------------------------------------------------------------
+ * 4. AI 챗봇 (chat.html 전용, 해당 요소가 없으면 그냥 종료)
  * ------------------------------------------------------------------------ */
 function initChat() {
   const form = document.querySelector("[data-chat-form]");
