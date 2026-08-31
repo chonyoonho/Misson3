@@ -108,6 +108,24 @@
 
           <button type="button" class="gallery-item" data-gallery-item>
             <img
+              src="image/교정에서 사진.jpg"
+              alt="학교 교정에서 촬영된 사진"
+              loading="lazy"
+            />
+            <span class="gallery-caption">교정에서</span>
+          </button>
+
+          <button type="button" class="gallery-item" data-gallery-item>
+            <img
+              src="image/하천길 유세.webp"
+              alt="하천길에서의 유세 모습"
+              loading="lazy"
+            />
+            <span class="gallery-caption">하천길 유세</span>
+          </button>
+
+          <button type="button" class="gallery-item" data-gallery-item>
+            <img
               src="image/09-천여학생데모-기사.jpg"
               alt="'대전서도 천여학생 데모' 신문 기사 (1960.3.9, 대전일보)"
               loading="lazy"
@@ -133,51 +151,6 @@
             <span class="gallery-caption">3.8민주의거 회고 기사<br />(2010.2.16 · 동아일보)</span>
           </button>
 
-          <button type="button" class="gallery-item" data-gallery-item>
-            <img
-              src="image/교정에서 사진.jpg"
-              alt="학교 교정에서 촬영된 사진"
-              loading="lazy"
-            />
-            <span class="gallery-caption">교정에서</span>
-          </button>
-
-          <button type="button" class="gallery-item" data-gallery-item>
-            <img
-              src="image/유세거리에 자전거 모습.jpg"
-              alt="유세 거리의 자전거 모습"
-              loading="lazy"
-            />
-            <span class="gallery-caption">유세 거리의 자전거 모습</span>
-          </button>
-
-          <button type="button" class="gallery-item" data-gallery-item>
-            <img
-              src="image/하천길 유세.webp"
-              alt="하천길에서의 유세 모습"
-              loading="lazy"
-            />
-            <span class="gallery-caption">하천길 유세</span>
-          </button>
-
-          <div class="gallery-item gallery-item--video">
-            <iframe
-              src="https://www.youtube.com/embed/2PkgTjaliT4"
-              title="3.8민주의거기념사업회 기념 행사 모습"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-            <!-- file://로 직접 열면 유튜브 임베드가 재생되지 않으므로 안내 오버레이로 대체 -->
-            <div class="video-frame-notice" data-video-notice hidden>
-              <p>
-                <strong>로컬 서버로 열어야 영상이 재생됩니다.</strong><br />
-                파일을 더블클릭해서 열면(file://) 유튜브 임베드가 차단됩니다.
-              </p>
-              <code>npx serve .</code>
-            </div>
-            <span class="gallery-caption">기념사업회 행사 모습</span>
-          </div>
         </div>
       </div>
     </section>
@@ -215,6 +188,23 @@
             <iframe
               src="https://www.youtube.com/embed/srXvTLHCnmk"
               title="3.8민주의거 기념 다큐멘터리"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            <div class="video-frame-notice" data-video-notice hidden>
+              <p>
+                <strong>로컬 서버로 열어야 영상이 재생됩니다.</strong><br />
+                파일을 더블클릭해서 열면(file://) 유튜브 임베드가 차단됩니다.
+              </p>
+              <code>npx serve .</code>
+            </div>
+          </div>
+
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/2PkgTjaliT4"
+              title="3.8민주의거기념사업회 기념 행사 모습"
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
