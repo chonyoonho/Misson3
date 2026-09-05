@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initGalleryLightbox();
   initVideoFileProtocolNotice();
   initChat();
+  initSchoolsModal();
 });
 
 /* --------------------------------------------------------------------------
@@ -89,7 +90,39 @@ function initVideoFileProtocolNotice() {
 }
 
 /* --------------------------------------------------------------------------
- * 4. AI 챗봇 (chat.html 전용, 해당 요소가 없으면 그냥 종료)
+ * 4. 참여 고교 카드 모달 (index.html 전용, 해당 요소가 없으면 그냥 종료)
+ * ------------------------------------------------------------------------ */
+function initSchoolsModal() {
+  const openBtn = document.querySelector("[data-schools-open]");
+  const modal = document.querySelector("[data-schools-modal]");
+  if (!openBtn || !modal) return;
+
+  const closeBtn = modal.querySelector("[data-schools-close]");
+
+  function openModal() {
+    modal.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    modal.classList.remove("is-open");
+    document.body.style.overflow = "";
+  }
+
+  openBtn.addEventListener("click", openModal);
+  closeBtn?.addEventListener("click", closeModal);
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+}
+
+/* --------------------------------------------------------------------------
+ * 5. AI 챗봇 (chat.html 전용, 해당 요소가 없으면 그냥 종료)
  * ------------------------------------------------------------------------ */
 function initChat() {
   const form = document.querySelector("[data-chat-form]");

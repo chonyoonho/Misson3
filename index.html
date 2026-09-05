@@ -96,12 +96,12 @@
             <span class="card-cta">갤러리 둘러보기 →</span>
           </a>
 
-          <a href="chat.html" class="nav-card">
-            <span class="nav-card-icon" aria-hidden="true">💬</span>
-            <h3>AI에게 물어보기</h3>
-            <p>"왜 대전고 학생들이 시위를 했나요?" 같은 궁금증을 AI 챗봇에게 자유롭게 질문해보세요.</p>
-            <span class="card-cta">질문하러 가기 →</span>
-          </a>
+          <button type="button" class="nav-card" data-schools-open>
+            <span class="nav-card-icon" aria-hidden="true">🎓</span>
+            <h3>참여 고교 확인하기</h3>
+            <p>3.8민주의거에 함께한 대전 지역 7개 고등학교를 카드로 한눈에 확인해보세요.</p>
+            <span class="card-cta">7개 고교 보기 →</span>
+          </button>
         </div>
       </div>
     </section>
@@ -125,6 +125,56 @@
       <span>&copy; 2026 3.8민주의거기념사업회. All rights reserved.</span>
     </div>
   </footer>
+
+  <!-- ================= 참여 고교 카드 모달 ================= -->
+  <div class="lightbox" data-schools-modal>
+    <button type="button" class="lightbox-close" data-schools-close aria-label="닫기">&times;</button>
+    <div class="schools-modal-content">
+      <h2 class="schools-modal-title">3.8민주의거에 참여한 7개 고교</h2>
+      <p class="schools-modal-desc">
+        1960년 3월, 부정선거에 항거하며 거리로 나선 대전 지역 7개 고등학교 학생들입니다.
+      </p>
+      <div class="school-grid">
+        <div class="school-card">
+          <img class="school-badge" src="image/badges/01-daejeon-go.png" alt="대전고등학교 모표" loading="lazy" />
+          <h3>대전고등학교</h3>
+        </div>
+
+        <div class="school-card">
+          <img class="school-badge" src="image/badges/02-daejeon-sanggo.png" alt="대전상업고등학교 모표" loading="lazy" />
+          <h3>대전상업고등학교</h3>
+          <span class="school-note">(현 우송고등학교)</span>
+        </div>
+
+        <div class="school-card">
+          <img class="school-badge" src="image/badges/03-daejeon-gonggo.png" alt="대전공업고등학교 모표" loading="lazy" />
+          <h3>대전공업고등학교</h3>
+          <span class="school-note">(현 국립한밭대학교)</span>
+        </div>
+
+        <div class="school-card">
+          <img class="school-badge" src="image/badges/04-bomun-go.png" alt="보문고등학교 모표" loading="lazy" />
+          <h3>보문고등학교</h3>
+        </div>
+
+        <div class="school-card">
+          <img class="school-badge" src="image/badges/05-daejeon-yeogo.png" alt="대전여자고등학교 모표" loading="lazy" />
+          <h3>대전여자고등학교</h3>
+        </div>
+
+        <div class="school-card">
+          <img class="school-badge" src="image/badges/06-hosudon-yeogo.png" alt="호수돈여자고등학교 모표" loading="lazy" />
+          <h3>호수돈여자고등학교</h3>
+        </div>
+
+        <div class="school-card">
+          <img class="school-badge" src="image/badges/07-daejeon-sabeom.png" alt="대전사범학교 모표" loading="lazy" />
+          <h3>대전사범학교</h3>
+          <span class="school-note">(1963년 폐교)</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="js/main.js" defer></script>
 </body>
