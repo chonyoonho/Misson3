@@ -1100,3 +1100,118 @@ main {
     height: 28px;
   }
 }
+
+/* --- 기념탑 이야기 (memorial.html 블로그형 본문) --------------------------- */
+.blog-post {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 36px;
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  line-height: 1.85;
+}
+
+.blog-post p {
+  margin: 0 0 16px;
+}
+
+.blog-title {
+  margin: 0 0 32px;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+}
+
+.blog-heading {
+  margin: 48px 0 20px;
+  padding-bottom: 10px;
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.blog-subheading {
+  margin: 28px 0 12px;
+  font-size: 1.05rem;
+  color: var(--color-primary-dark);
+}
+
+.blog-figure {
+  margin: 24px 0 10px;
+  text-align: center;
+}
+
+.blog-figure img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.blog-spec {
+  font-size: 0.92rem;
+  color: var(--color-text-light);
+}
+
+.blog-verse {
+  margin: 16px 0 20px;
+  padding: 20px 24px;
+  background-color: var(--color-bg);
+  border-left: 4px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+}
+
+.blog-verse p:last-child {
+  margin-bottom: 0;
+}
+
+.blog-poem {
+  text-align: center;
+  border-left: none;
+  border-top: 4px solid var(--color-accent);
+}
+
+.blog-poet {
+  color: var(--color-text-light);
+  font-size: 0.92rem;
+}
+
+.blog-source {
+  margin-top: 40px !important;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.82rem;
+  color: var(--color-text-light);
+  word-break: break-all;
+}
+
+.blog-source a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.blog-back {
+  max-width: 760px;
+  margin: 24px auto 0;
+}
+
+.blog-back a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  .blog-post {
+    padding: 28px 18px;
+  }
+
+  .blog-title {
+    font-size: 1.25rem;
+  }
+
+  .blog-verse {
+    padding: 16px;
+  }
+}
