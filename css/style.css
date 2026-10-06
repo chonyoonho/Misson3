@@ -156,6 +156,7 @@ h1, h2, h3 {
   color: rgba(247, 245, 240, 0.82);
   font-weight: 500;
   font-size: 0.95rem;
+  white-space: nowrap;
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
